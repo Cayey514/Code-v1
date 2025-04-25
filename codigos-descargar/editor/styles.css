@@ -1,0 +1,122 @@
+/* Reset y estilos base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+}
+
+/* Header */
+.header {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Contenedor principal */
+.editor-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Sección de editores */
+.code-editors {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* Pestañas de editores */
+.editor-tabs {
+    display: flex;
+    background-color: #444;
+}
+
+.editor-tab {
+    padding: 10px 15px;
+    color: white;
+    cursor: pointer;
+    background-color: #555;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.editor-tab.active {
+    background-color: #0078d7;
+}
+
+/* Área de edición */
+.editor {
+    flex: 1;
+    display: none;
+    overflow: auto;
+}
+
+.editor.active {
+    display: block;
+}
+
+.CodeMirror {
+    height: 100%;
+    font-size: 14px;
+}
+
+/* Vista previa */
+.preview-container {
+    flex: 1;
+    border-left: 1px solid #ccc;
+    background-color: white;
+    overflow: auto;
+    position: relative;
+}
+
+.preview-header {
+    padding: 10px;
+    background-color: #eee;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+
+#preview {
+    width: 100%;
+    height: calc(100% - 40px);
+    border: none;
+}
+
+/* Handle de redimensionamiento */
+.resize-handle {
+    width: 100%;
+    height: 5px;
+    background-color: #ccc;
+    cursor: row-resize;
+}
+
+/* Media queries para escritorio */
+@media (min-width: 768px) {
+    .editor-container {
+        flex-direction: row;
+    }
+    
+    .code-editors,
+    .preview-container {
+        width: 50%;
+    }
+    
+    .resize-handle {
+        width: 5px;
+        height: 100%;
+        cursor: col-resize;
+    }
+}

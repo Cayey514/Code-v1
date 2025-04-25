@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Código</title>
+    <!-- Librerías CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Editor de Código</h1>
+    </div>
+    
+    <div class="editor-container">
+        <div class="code-editors">
+            <div class="editor-tabs">
+                <button class="editor-tab active" data-editor="html">HTML</button>
+                <button class="editor-tab" data-editor="css">CSS</button>
+                <button class="editor-tab" data-editor="js">JavaScript</button>
+            </div>
+            
+            <div id="html-editor" class="editor active">
+                <textarea id="html-code"><!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Página</title>
+</head>
+<body>
+    <h1>Hola Mundo!</h1>
+    <p>Este es un editor de código con vista previa en tiempo real.</p>
+    <button id="miBoton">Haz clic</button>
+</body>
+</html></textarea>
+            </div>
+            
+            <div id="css-editor" class="editor">
+                <textarea id="css-code">body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    color: #0078d7;
+}
+
+button {
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005a9e;
+}</textarea>
+            </div>
+            
+            <div id="js-editor" class="editor">
+                <textarea id="js-code">document.getElementById('miBoton').addEventListener('click', function() {
+    alert('¡Botón clickeado!');
+});</textarea>
+            </div>
+        </div>
+        
+        <div class="resize-handle"></div>
+        
+        <div class="preview-container">
+            <div class="preview-header">Vista Previa</div>
+            <iframe id="preview"></iframe>
+        </div>
+    </div>
+
+    <!-- Librerías JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closetag.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
+    
+    <!-- JS personalizado -->
+    <script src="script.js" defer></script>
+</body>
+</html>

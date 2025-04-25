@@ -1,0 +1,760 @@
+/* Reset y variables CSS */
+:root {
+    --primary-color: #00f3ff;
+    --secondary-color: #ff4d7d;
+    --dark-space: #0a0e23;
+    --neon-shadow: 0 0 10px var(--primary-color), 
+                   0 0 20px rgba(0, 243, 255, 0.5),
+                   0 0 30px rgba(0, 243, 255, 0.3);
+    --font-title: 'Orbitron', sans-serif;
+    --font-text: 'Space Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-text);
+    color: #fff;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+    background-color: var(--dark-space);
+}
+
+/* Fondo espacial mejorado */
+.space-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    overflow: hidden;
+}
+
+.stars, .stars2, .stars3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 40px 70px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 90px 40px, white, rgba(0,0,0,0));
+    background-repeat: repeat;
+}
+
+.stars {
+    animation: animStar 100s linear infinite;
+    opacity: 0.8;
+}
+
+.stars2 {
+    background-image: 
+        radial-gradient(1px 1px at 50px 160px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 90px 40px, white, rgba(0,0,0,0));
+    animation: animStar 150s linear infinite;
+    opacity: 0.6;
+}
+
+.stars3 {
+    background-image: 
+        radial-gradient(1px 1px at 190px 150px, white, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 30px 200px, white, rgba(0,0,0,0));
+    animation: animStar 200s linear infinite;
+    opacity: 0.4;
+}
+
+.comet {
+    position: absolute;
+    top: 20%;
+    left: -100px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+    animation: cometFly 30s linear infinite;
+}
+
+.comet:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.8), transparent);
+    transform: rotate(-45deg);
+    transform-origin: left center;
+}
+
+@keyframes animStar {
+    from { transform: translateY(0); }
+    to { transform: translateY(-1000px); }
+}
+
+@keyframes cometFly {
+    0% { transform: translateX(0) translateY(0); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateX(1500px) translateY(-500px); opacity: 0; }
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    text-align: center;
+    max-width: 900px;
+    position: relative;
+    padding: 3rem;
+    background: rgba(10, 14, 35, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    box-shadow: var(--neon-shadow);
+    animation: borderGlow 4s infinite alternate;
+}
+
+@keyframes borderGlow {
+    0% { box-shadow: 0 0 10px rgba(0, 243, 255, 0.3); }
+    100% { box-shadow: 0 0 20px rgba(0, 243, 255, 0.7), 
+                      0 0 40px rgba(0, 243, 255, 0.4); }
+}
+
+/* Astronauta mejorado */
+.astronaut-container {
+    position: relative;
+    width: 180px;
+    height: 280px;
+    margin: 0 auto 3rem;
+}
+
+.astronaut {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    animation: float 8s ease-in-out infinite;
+}
+
+.helmet {
+    width: 120px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    z-index: 3;
+}
+
+.visor {
+    width: 70px;
+    height: 40px;
+    background: linear-gradient(160deg, #0a2e38 0%, #1a7e8c 100%);
+    border-radius: 20px;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7);
+    z-index: 4;
+    overflow: hidden;
+}
+
+.visor-reflection {
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    top: 10px;
+    right: 10px;
+    filter: blur(1px);
+    z-index: 5;
+}
+
+.body {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.life-support {
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background: #333;
+    border-radius: 5px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.arm {
+    width: 25px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: 120px;
+    border-radius: 10px;
+}
+
+.left-arm {
+    left: 25px;
+    transform: rotate(15deg);
+    transform-origin: top center;
+    animation: left-arm-move 4s ease-in-out infinite;
+}
+
+.right-arm {
+    right: 25px;
+    transform: rotate(-15deg);
+    transform-origin: top center;
+    animation: right-arm-move 4s ease-in-out infinite;
+}
+
+.legs {
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.leg {
+    width: 25px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    bottom: 0;
+    border-radius: 8px;
+}
+
+.left-leg {
+    left: 5px;
+    transform: rotate(-5deg);
+    animation: left-leg-move 5s ease-in-out infinite;
+}
+
+.right-leg {
+    right: 5px;
+    transform: rotate(5deg);
+    animation: right-leg-move 5s ease-in-out infinite;
+}
+
+.jetpack {
+    width: 50px;
+    height: 70px;
+    background: linear-gradient(180deg, #333 0%, #222 100%);
+    border-radius: 10px;
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.jet-flame {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(180deg, #ff4d7d 0%, #ffb34d 50%, transparent 100%);
+    border-radius: 0 0 10px 10px;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: jetFlame 0.5s ease-in-out infinite alternate;
+    filter: blur(1px);
+}
+
+.oxygen-bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.oxygen-bubbles:before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    top: 80px;
+    left: 60px;
+    animation: bubbleFloat 3s ease-in infinite;
+}
+
+.oxygen-bubbles:after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    top: 90px;
+    left: 65px;
+    animation: bubbleFloat 3.5s ease-in infinite 0.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+@keyframes left-arm-move {
+    0%, 100% { transform: rotate(15deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes right-arm-move {
+    0%, 100% { transform: rotate(-15deg); }
+    50% { transform: rotate(-5deg); }
+}
+
+@keyframes left-leg-move {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(-15deg); }
+}
+
+@keyframes right-leg-move {
+    0%, 100% { transform: rotate(5deg); }
+    50% { transform: rotate(15deg); }
+}
+
+@keyframes jetFlame {
+    0% { height: 40px; opacity: 0.8; }
+    100% { height: 50px; opacity: 1; }
+}
+
+@keyframes bubbleFloat {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-100px) translateX(10px); opacity: 0; }
+}
+
+/* Contenido del error */
+.error-content {
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    font-family: var(--font-title);
+    font-size: 10rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-shadow: var(--neon-shadow);
+    letter-spacing: 5px;
+    position: relative;
+    animation: textGlow 2s infinite alternate;
+}
+
+.glitch {
+    position: relative;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.glitch::before {
+    color: #0ff;
+    z-index: -1;
+    animation: glitch-effect 3s infinite;
+}
+
+.glitch::after {
+    color: #f0f;
+    z-index: -2;
+    animation: glitch-effect 2s infinite reverse;
+}
+
+.subtitle {
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+.message {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 10px var(--primary-color); }
+    100% { text-shadow: 0 0 20px var(--primary-color), 
+                       0 0 40px var(--primary-color); }
+}
+
+@keyframes glitch-effect {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); }
+    80% { transform: translate(3px, -3px); }
+    100% { transform: translate(0); }
+}
+
+/* Botón mejorado */
+.button-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 2rem;
+    perspective: 1000px;
+}
+
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0066ff 100%);
+    color: #000;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    z-index: 1;
+}
+
+.home-button:hover {
+    transform: translateY(-5px) rotateX(15deg);
+    box-shadow: 0 15px 30px rgba(0, 243, 255, 0.6);
+    letter-spacing: 2px;
+}
+
+.home-button:active {
+    transform: translateY(0) rotateX(0);
+}
+
+.home-button .button-text {
+    transition: all 0.4s ease;
+    display: inline-block;
+}
+
+.home-button:hover .button-text {
+    transform: translateX(10px);
+}
+
+.home-button .button-icon {
+    transition: all 0.4s ease;
+    display: inline-block;
+    margin-left: 10px;
+    transform: translateX(-20px);
+    opacity: 0;
+}
+
+.home-button:hover .button-icon {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.home-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+    z-index: -1;
+    transition: all 0.4s ease;
+    opacity: 0;
+}
+
+.home-button:hover::before {
+    opacity: 1;
+}
+
+/* Objetos espaciales */
+.space-objects {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    z-index: -1;
+}
+
+.earth {
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 30% 30%, #1a2980, #26d0ce, #1a2980);
+    top: 10%;
+    left: 5%;
+    animation: planet-float 25s ease-in-out infinite;
+    box-shadow: inset -10px -10px 40px #000, 
+                0 0 40px rgba(38, 208, 206, 0.6);
+}
+
+.mars {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 30% 30%, #c1440e, #e3630c, #c1440e);
+    bottom: 15%;
+    right: 5%;
+    animation: planet-float 20s ease-in-out infinite reverse;
+    box-shadow: inset -8px -8px 30px #000, 
+                0 0 30px rgba(227, 99, 12, 0.6);
+}
+
+.saturn {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at 30% 30%, #e3b10c, #e37a0c, #e3b10c);
+    top: 60%;
+    left: 3%;
+    animation: planet-float 30s ease-in-out infinite;
+    box-shadow: inset -15px -15px 50px #000, 
+                0 0 50px rgba(227, 177, 12, 0.6);
+}
+
+.saturn:after {
+    content: '';
+    position: absolute;
+    width: 220px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(15deg);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.ufo {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    background: radial-gradient(ellipse at center, #00ffaa 0%, #009970 100%);
+    border-radius: 50%;
+    top: 20%;
+    right: 10%;
+    animation: ufoFloat 15s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(0, 255, 170, 0.6);
+    z-index: -1;
+}
+
+.ufo:before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 15px;
+    background: rgba(0, 255, 170, 0.3);
+    border-radius: 50%;
+    bottom: -5px;
+    left: 10px;
+    filter: blur(5px);
+}
+
+.ufo:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    background: #fff;
+    border-radius: 50%;
+    top: 5px;
+    left: 25px;
+    box-shadow: 20px 0 0 #fff;
+}
+
+@keyframes planet-float {
+    0%, 100% { transform: translate(0, 0) rotate(0); }
+    20% { transform: translate(30px, 20px) rotate(5deg); }
+    40% { transform: translate(10px, 40px) rotate(0); }
+    60% { transform: translate(-20px, 30px) rotate(-5deg); }
+    80% { transform: translate(-10px, 10px) rotate(0); }
+}
+
+@keyframes ufoFloat {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(50px, 30px); }
+    50% { transform: translate(20px, -20px); }
+    75% { transform: translate(-30px, 10px); }
+}
+
+/* Efecto de partículas */
+.particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -5;
+}
+
+/* Efectos de scroll mejorados */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estrellas fugaces aleatorias */
+@keyframes shootingStar {
+    0% { transform: translateX(0) translateY(0) scale(0.5); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateX(1000px) translateY(-300px) scale(1); opacity: 0; }
+}
+
+/* Responsive mejorado */
+@media (max-width: 768px) {
+    .content {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+    
+    .title {
+        font-size: 6rem;
+    }
+    
+    .subtitle {
+        font-size: 1.8rem;
+    }
+    
+    .message {
+        font-size: 1.1rem;
+    }
+    
+    .astronaut-container {
+        width: 140px;
+        height: 220px;
+        margin-bottom: 2rem;
+    }
+    
+    .helmet {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .visor {
+        width: 50px;
+        height: 30px;
+        top: 45px;
+    }
+    
+    .body {
+        width: 80px;
+        height: 80px;
+        top: 85px;
+    }
+    
+    .arm {
+        top: 95px;
+        height: 60px;
+    }
+    
+    .legs {
+        top: 155px;
+    }
+    
+    .leg {
+        height: 55px;
+    }
+    
+    .earth {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .mars {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .saturn {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .saturn:after {
+        width: 150px;
+    }
+    
+    .home-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 4.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .astronaut-container {
+        width: 120px;
+        height: 190px;
+    }
+}

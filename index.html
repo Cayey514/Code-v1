@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cayey ° Proyectos</title>
+    <link rel="icon" href="img/icono.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Mis<span>Proyectos</span></h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="/404/index.html">Mas...</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Bienvenido a mi portafolio</h2>
+                <p>Aquí encontrarás todos mis proyectos de desarrollo con sus códigos fuente disponibles para descargar por <span style="color:rgba(21, 255, 0, 0.97); 
+                font-size: 20px;
+                font-weight: 600;
+                cursor: pointer;
+                text-decoration: underline;"
+                >DRIVE</span>.</p>
+                <a href="#proyectos" class="btn">Ver Proyectos</a>
+            </div>
+            <div class="hero-image">
+                <img src="img/poe.jpg" alt="Desarrollador trabajando" class="floating">
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="projects">
+        <div class="container">
+            <h2 class="section-title">Mis <span>Proyectos</span></h2>
+            <h1 class="logo">Hay <span>(1)</span> proyecto.</h1>
+            <div class="projects-grid">
+                <!-- Proyectos se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="about">
+        <div class="container">
+            <div class="about-image">
+                <img src="img/luffy.jpeg" alt="Sobre mí" class="floating">
+            </div>
+            <div class="about-content">
+                <h2 class="section-title">Sobre <span>Mí</span></h2>
+                <p>Soy un apasionado desarrollador que disfruta creando soluciones innovadoras. Me encanta compartir mi conocimiento y aprender de otros.</p>
+                <p>Todos mis proyectos están disponibles aquí para que puedas verlos y hacer tus propias creaciones.</p>
+                <div class="skills">
+                    <h3>Habilidades:</h3>
+                    <div class="skill-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                     <!--  <span>Python</span>
+                        <span>React</span>
+                        <span>Node.js</span>--> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contáct<span>ame</span></h2>
+            <p style="margin-bottom: 20px;">Si deseas que te responda pon un correo valído.</p>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="from_name" name="from_name" placeholder="Nombre" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="reply_to" name="reply_to" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Mensaje" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
+            <div id="success-message" style="display: none; color: green; margin-top: 20px;">
+                ¡Mensaje enviado con éxito!
+            </div>
+        </div>
+    </section>
+    
+   
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Mis Proyectos. Todos los derechos reservados.
+                <br><P style="color: rgb(4, 246, 56);">Estoy creando un portafolio mas avanzado por el momento tengo este. <br>@CAYEY
+                </P>
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/Cayey514"><i class="fab fa-github"></i></a>
+                <a href="https://www.tiktok.com/@software_170?_t=ZS-8vq1N3PphR7&_r=1"><i class="fab fa-tiktok"></i></a>
+                <a href="http://t.me/Andrey_Aguilar"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.instagram.com/cayey19?igsh=MXRiMzZ6dG91NTA4aw=="><i class="fab fa-instagram"></i></a>
+
+                <a href="#"><i class="fab fa-"></i></a>
+            </div>
+        </div>
+    </footer>
+
+ 
+ <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+ <script>
+     // Inicializa EmailJS con tu User ID
+     (function() {
+         emailjs.init("P9hOurjG-gWIvqq4R"); // Reemplaza con tu User ID real
+     })();
+ </script>
+ <script src="js/contact-form.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
